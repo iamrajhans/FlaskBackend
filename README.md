@@ -12,5 +12,10 @@ using is postgresql
 
 - ["sqlalchemy"] (http://www.sqlalchemy.org/)
 
+##Install
+Install packages using pip
+
+`pip install -r requirement.txt`
+
 ##Note
 - Do your work in ["virtualenev"](http://docs.python-guide.org/en/latest/dev/virtualenvs/)
