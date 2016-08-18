@@ -12,3 +12,5 @@ using is postgresql
 
 - ["sqlalchemy"] (http://www.sqlalchemy.org/)
 
+##Note
+- Do your work in ["virtualenev"](http://docs.python-guide.org/en/latest/dev/virtualenvs/)
