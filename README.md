@@ -17,5 +17,9 @@ Install packages using pip
 
 `pip install -r requirement.txt`
 
+##Run it
+Run your app using manager
+`python manage.py runserver`
+
 ##Note
 - Do your work in ["virtualenev"](http://docs.python-guide.org/en/latest/dev/virtualenvs/)
