@@ -10,7 +10,11 @@ using is postgresql
 
 - ["flask"](http://flask.pocoo.org/)
 
-- ["sqlalchemy"] (http://www.sqlalchemy.org/)
+- ["sqlalchemy"](http://www.sqlalchemy.org/)
+
+- ["flask-script"](https://flask-script.readthedocs.io/en/latest/)
+
+- ["flask-migrate"](https://flask-migrate.readthedocs.io/en/latest/)
 
 ##Install
 Install packages using pip
@@ -19,6 +23,7 @@ Install packages using pip
 
 ##Run it
 Run your app using manager
+
 `python manage.py runserver`
 
 ##Note
