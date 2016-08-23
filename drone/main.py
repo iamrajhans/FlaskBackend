@@ -1,6 +1,12 @@
 from flask import Flask
 import os.path as op
+from flask_sqlalchemy import SQLAlchemy
 
+#---- db instance ---#
+
+db = SQLAlchemy()
+
+#----- create flask instance and config flask -----#
 def create_app(config,config_override=None):
     """
     Application factory
