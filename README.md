@@ -26,5 +26,23 @@ Run your app using manager
 
 `python manage.py runserver`
 
+To create migration repository 
+
+`python manage.py db init`
+
+Generate an initial migration 
+
+`python manage.py migrate`
+
+Apply the migration to the database
+
+`python manage upgrade`
+
+To see all the commands that are available run this command
+
+`python manage.py db --help`
+
+
+
 ##Note
 - Do your work in ["virtualenev"](http://docs.python-guide.org/en/latest/dev/virtualenvs/)
