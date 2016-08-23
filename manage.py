@@ -12,7 +12,7 @@ migrate =Migrate()
 
 manager = Manager(setup_app,help='Manage script')
 manager.add_command("runserver",Server())
-manager.add_command("db",MigrateCommand())
+manager.add_command("db",MigrateCommand)
 manager.add_option('--app-config',dest='config',default='local',help='Application config load ')
 
 if __name__ == "__main__":
