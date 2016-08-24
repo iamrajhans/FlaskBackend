@@ -16,8 +16,10 @@ def create_app(config,config_override=None):
 
     """
     global  app
+    global  db
     app = Flask(__name__)
 
+    db.init_app(app)
     # add Route log
     #app.after_request(log_route)
 
