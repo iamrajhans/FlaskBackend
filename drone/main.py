@@ -1,6 +1,8 @@
+import logging
 from flask import Flask
 import os.path as op
 from flask_sqlalchemy import SQLAlchemy
+from raven.contrib.flask import Sentry
 
 #---- db instance ---#
 
@@ -17,6 +19,7 @@ def create_app(config,config_override=None):
     """
     global  app
     global  db
+
     app = Flask(__name__)
 
     db.init_app(app)
@@ -32,6 +35,9 @@ def create_app(config,config_override=None):
 #initzalize your app here
 def init_app(app):
 
+    global sentry
+
+    sentry = Sentry(app,logging=True,level=logging.ERROR,dsn=app.config['DSN_SENTRY'])
     from drone import api_start
 
     app.register_blueprint(api_start.api)
