@@ -3,3 +3,4 @@ SQLAlchemy
 Flask-Script
 Flask-Migrate
 raven
+psycopg2
