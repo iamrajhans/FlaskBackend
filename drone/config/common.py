@@ -1,4 +1,5 @@
 #include your common config to your app
+import logging
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 SECRET_KEY ='seceret key'
@@ -10,4 +11,4 @@ SQLALCHEMY_DATABASE_URI= 'postgresql://username:password@localhost:5432/database
 
 #-------- Sentry ------#
 
-SENTRY_DSN ='add your dsn sentry here'
+DSN_SENTRY ='yoour sentry dsn here'
