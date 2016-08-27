@@ -2,3 +2,4 @@ Flask
 SQLAlchemy
 Flask-Script
 Flask-Migrate
+raven
