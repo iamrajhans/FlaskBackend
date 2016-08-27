@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 #---- db instance ---#
 
-db = SQLAlchemy()
+db = SQLAlchemy(session_options={'autocommit': True, 'autoflush': True})
 
 #----- create flask instance and config flask -----#
 def create_app(config,config_override=None):
