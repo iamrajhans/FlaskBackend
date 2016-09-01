@@ -43,6 +43,10 @@ To see all the commands that are available run this command
 `python manage.py db --help`
 
 
+##Authentication
+
+For user login use ["flask-bcrypt"](https://flask-bcrypt.readthedocs.io/en/latest/)
+
 
 ##Note
 - Do your work in ["virtualenev"](http://docs.python-guide.org/en/latest/dev/virtualenvs/)
