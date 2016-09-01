@@ -4,3 +4,5 @@ Flask-Script
 Flask-Migrate
 raven
 psycopg2
+flask-bcrypt
+
