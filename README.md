@@ -46,6 +46,7 @@ To see all the commands that are available run this command
 ##Authentication
 
 For user login use ["flask-bcrypt"](https://flask-bcrypt.readthedocs.io/en/latest/)
+["hashlib"](https://docs.python.org/2/library/hashlib.html)
 
 
 ##Note
