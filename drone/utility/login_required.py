@@ -2,6 +2,8 @@ from functools import wraps
 from flask import request,jsonify
 from nishu import get_application_model
 import  hmac, hashlib
+import base64
+
 def login_required(func):
 
     @wraps(func)
@@ -27,7 +29,10 @@ def login_required(func):
         #for get request
 
         if request.method == 'GET':
-            url = str(request.path)
+            url = request.path + '?' + request.query_string if request.query_string else request.path
+            server_hash = base64.base64encode(str(server_key),str(url))
+            if user_hash == server_hash:
+                return func(*args,**kwargs)
             #create hash here to compare with user hash
             #api_key and url
 
