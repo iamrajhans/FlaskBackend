@@ -47,7 +47,7 @@ To see all the commands that are available run this command
 
 For user login use ["flask-bcrypt"](https://flask-bcrypt.readthedocs.io/en/latest/)
 ["hashlib"](https://docs.python.org/2/library/hashlib.html)
-["base64"](https://docs.python.org/2/library/base64.html)
+
 
 ##Note
 - Do your work in ["virtualenev"](http://docs.python-guide.org/en/latest/dev/virtualenvs/)
