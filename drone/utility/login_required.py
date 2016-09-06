@@ -38,6 +38,9 @@ def login_required(func):
                 return jsonify("Error: HMAC is not matched")
 
 
+        if request.method == 'POST':
+            return ""
+
 
 
 
