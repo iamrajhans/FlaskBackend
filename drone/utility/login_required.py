@@ -33,8 +33,9 @@ def login_required(func):
             server_hash = base64.base64encode(str(server_key),str(url))
             if user_hash == server_hash:
                 return func(*args,**kwargs)
-            #create hash here to compare with user hash
-            #api_key and url
+
+            else :
+                return jsonify("Error: HMAC is not matched")
 
 
 
