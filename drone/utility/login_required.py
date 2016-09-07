@@ -40,7 +40,7 @@ def login_required(func):
 
         if request.method == 'POST':
             return ""
-
+    return decorator_func
 
 
 
