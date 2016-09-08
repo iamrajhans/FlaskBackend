@@ -25,7 +25,6 @@ def insert_user():
 
     if not data or 'id' not in data :
         return "Data is not provided ",414
-    current_app.logger.info('data : '+str(data))
     add_user = UserModel(
         id    = data['id'],
         name  = data['name'],
