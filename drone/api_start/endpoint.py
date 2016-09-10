@@ -2,6 +2,7 @@ from drone.api_start import api
 from drone.main import db
 from drone.models import UserModel
 from flask import request,current_app
+from drone.utility.nishu import add_user_in_db
 
 @api.route('/',methods=['GET'])
 def start():
@@ -25,13 +26,6 @@ def insert_user():
 
     if not data or 'id' not in data :
         return "Data is not provided ",414
-    add_user = UserModel(
-        id    = data['id'],
-        name  = data['name'],
-        email = data['email']
-    )
 
-    db.session.add(add_user)
-    db.session.flush()
-
+    add_user_in_db(data)
     return "ok",200
