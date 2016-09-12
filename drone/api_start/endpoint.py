@@ -2,7 +2,7 @@ from drone.api_start import api
 from drone.main import db
 from drone.models import UserModel
 from flask import request,current_app
-from drone.utility.nishu import add_user_in_db
+from drone.utility.nishu import add_user_in_db,get_user_names
 
 @api.route('/',methods=['GET'])
 def start():
@@ -11,14 +11,8 @@ def start():
 
 @api.route('/users',methods=['GET'])
 def users():
-    totalUsers = []
-    users = db.session.query(UserModel).all()
-
-#----- add to list the users -----#
-    for user in users :
-        totalUsers.append(user.name)
-
-    return str(totalUsers)
+    all_users = get_user_names()
+    return all_users
 
 @api.route('/users',methods=['POST'])
 def insert_user():
