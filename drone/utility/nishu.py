@@ -16,3 +16,10 @@ def add_user_in_db(data):
     db.session.add(add_user)
     db.session.flush()
 
+def get_user_names():
+    totalUsers=[]
+    users = db.session.query(UserModel).all()
+    # ----- add to list the users -----#
+    for user in users:
+        totalUsers.append(user.name)
+    return totalUsers
