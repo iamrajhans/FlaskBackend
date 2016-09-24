@@ -23,3 +23,6 @@ def get_user_names():
     for user in users:
         totalUsers.append(user.name)
     return totalUsers
+
+def set_user_credentials(user):
+    set_user = AppAuthentication()
