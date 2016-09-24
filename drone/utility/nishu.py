@@ -1,6 +1,6 @@
 from drone.main import db
 from drone.models import AppAuthentication,UserModel
-
+from os import urandom
 
 def get_application_model(api_key):
 
@@ -26,3 +26,10 @@ def get_user_names():
 
 def set_user_credentials(user):
     set_user = AppAuthentication()
+
+
+
+def generate_key():
+
+    key = urandom(48).encode('hex')
+    return key
