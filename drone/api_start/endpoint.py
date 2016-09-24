@@ -2,7 +2,7 @@ from drone.api_start import api
 from drone.main import db
 from drone.models import UserModel
 from flask import request,current_app
-from drone.utility.nishu import add_user_in_db,get_user_names
+from drone.utility.nishu import add_user_in_db,get_user_names,set_user_credentials
 
 @api.route('/',methods=['GET'])
 def start():
@@ -22,4 +22,14 @@ def insert_user():
         return "Data is not provided ",414
 
     add_user_in_db(data)
+    return "ok",200
+
+@api.route('/new_user',methods=['POST'])
+def new_User():
+    user = request.get_json()
+
+    if not user or 'username' and 'password' not in user :
+        return "Data is not Valid",414
+
+    set_user_credentials(user)
     return "ok",200
