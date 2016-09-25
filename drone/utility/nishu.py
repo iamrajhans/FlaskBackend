@@ -25,11 +25,17 @@ def get_user_names():
     return totalUsers
 
 def set_user_credentials(user):
-    set_user = AppAuthentication()
+    username = user['username']
+    entry = get_user_entry(username)
+    if not entry :
+        app_key = generate_key();
+        set_user = AppAuthentication()
 
 
 
 def generate_key():
-
-    key = urandom(48).encode('hex')
+    key = urandom(24).encode('hex')
     return key
+
+def get_user_entry(username):
+    return db.session.query(AppAuthentication).filter_by(username=username).first()
