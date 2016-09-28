@@ -26,10 +26,17 @@ def get_user_names():
 
 def set_user_credentials(user):
     username = user['username']
+    passwd = user['password']
     entry = get_user_entry(username)
     if not entry :
         app_key = generate_key();
-        set_user = AppAuthentication()
+        set_user = AppAuthentication(
+            username=username,
+            password=passwd,
+            api_key=app_key
+        )
+        db.session.add(set_user)
+        db.session.flush()
 
 
 
@@ -39,3 +46,4 @@ def generate_key():
 
 def get_user_entry(username):
     return db.session.query(AppAuthentication).filter_by(username=username).first()
+
