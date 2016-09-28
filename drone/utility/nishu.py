@@ -1,7 +1,7 @@
 from drone.main import db
 from drone.models import AppAuthentication,UserModel
 from os import urandom
-
+import bcrypt
 def get_application_model(api_key):
 
     return db.session.query(AppAuthentication).filter_by(api_key=api_key).first()
@@ -26,7 +26,7 @@ def get_user_names():
 
 def set_user_credentials(user):
     username = user['username']
-    passwd = user['password']
+    passwd = gen_hash(user['password'])
     entry = get_user_entry(username)
     if not entry :
         app_key = generate_key();
@@ -47,3 +47,5 @@ def generate_key():
 def get_user_entry(username):
     return db.session.query(AppAuthentication).filter_by(username=username).first()
 
+def gen_hash(password):
+    return bcrypt.hashpw(password,bcrypt.gensalt())
