@@ -5,4 +5,5 @@ Flask-Migrate
 raven
 psycopg2
 flask-bcrypt
-
+blinker
+bcrypt
