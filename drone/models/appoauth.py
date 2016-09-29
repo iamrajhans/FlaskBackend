@@ -4,7 +4,7 @@ from datetime import datetime
 class AppAuthentication(db.Model):
     __tablename__ = 'app_authentication'
 
-    id       = db.Column(db.Integer,primary_key=True)
+    id       = db.Column(db.Integer,primary_key=True,autoincrement=True)
     username = db.Column(db.String(100))
     password = db.Column(db.String(150))
     api_key  = db.Column(db.String(150))
