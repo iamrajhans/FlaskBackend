@@ -26,14 +26,16 @@ def get_user_names():
 
 def set_user_credentials(user):
     username = user['username']
-    passwd = gen_hash(user['password'])
+    salt = bcrypt.gensalt()
+    passwd = gen_hash(user['password'],salt)
     entry = get_user_entry(username)
     if not entry :
         app_key = generate_key();
         set_user = AppAuthentication(
             username=username,
             password=passwd,
-            api_key=app_key
+            api_key=app_key,
+            salt=salt
         )
         db.session.add(set_user)
         db.session.flush()
@@ -47,5 +49,5 @@ def generate_key():
 def get_user_entry(username):
     return db.session.query(AppAuthentication).filter_by(username=username).first()
 
-def gen_hash(password):
-    return bcrypt.hashpw(password,bcrypt.gensalt())
+def gen_hash(password,salt):
+    return bcrypt.hashpw(password,salt)
