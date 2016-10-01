@@ -52,3 +52,12 @@ def get_user_entry(username):
 
 def gen_hash(password,salt):
     return bcrypt.hashpw(password,salt)
+
+def authenticate_user(username,password):
+    entry = get_user_entry(username)
+    if entry :
+        server_hash = entry.password
+        if bcrypt.checkpw(password,server_hash):
+            return "Login successful",200
+        else:
+            return "Login Credential didn't match",412
