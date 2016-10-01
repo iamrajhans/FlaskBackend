@@ -26,17 +26,18 @@ def get_user_names():
 
 def set_user_credentials(user):
     username = user['username']
-    salt = bcrypt.gensalt()
-    passwd = gen_hash(user['password'],salt)
     entry = get_user_entry(username)
     if not entry :
-        app_key = generate_key();
+        salt = bcrypt.gensalt()
+        passwd = gen_hash(user['password'], salt)
+        app_key = generate_key()
         set_user = AppAuthentication(
             username=username,
             password=passwd,
             api_key=app_key,
             salt=salt
         )
+        #----- send api key to user for adding custom protocol -----#
         db.session.add(set_user)
         db.session.flush()
 
