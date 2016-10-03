@@ -25,7 +25,7 @@ def insert_user():
     add_user_in_db(data)
     return "ok",200
 
-@api.route('/new_user',methods=['POST'])
+@api.route('/sign_up',methods=['POST'])
 def new_User():
     user = request.get_json()
 
