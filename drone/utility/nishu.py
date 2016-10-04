@@ -61,3 +61,5 @@ def authenticate_user(username,password):
             return "Login successful",200
         else:
             return "Login Credential didn't match",412
+    else:
+        return "User Entry not found",412
