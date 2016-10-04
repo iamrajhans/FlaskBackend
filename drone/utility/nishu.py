@@ -40,6 +40,7 @@ def set_user_credentials(user):
         #----- send api key to user for adding custom protocol -----#
         db.session.add(set_user)
         db.session.flush()
+        return set_user.api_key
 
 
 
