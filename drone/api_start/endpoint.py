@@ -13,7 +13,7 @@ def start():
 @api.route('/users',methods=['GET'])
 def users():
     all_users = get_user_names()
-    return all_users
+    return all_users,200
 
 @api.route('/users',methods=['POST'])
 def insert_user():
