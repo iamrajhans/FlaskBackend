@@ -32,8 +32,8 @@ def new_User():
     if not user or 'username' and 'password' not in user :
         return "Data is not Valid",414
 
-    set_user_credentials(user)
-    return "ok",200
+    api_key = set_user_credentials(user)
+    return {'key':api_key},200
 
 @api.route('/login',methods=['POST'])
 def login():
