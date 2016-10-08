@@ -2,7 +2,6 @@ from functools import wraps
 from flask import request,jsonify
 from nishu import get_application_model
 import  hmac, hashlib
-import base64
 
 def login_required(func):
 
@@ -30,12 +29,13 @@ def login_required(func):
 
         if request.method == 'GET':
             url = request.path + '?' + request.query_string if request.query_string else request.path
-            server_hash = base64.base64encode(str(server_key),str(url))
-            if user_hash == server_hash:
-                return func(*args,**kwargs)
+            #change with the hmac
+            # server_hash = base64.base64encode(str(server_key),str(url))
+            # if user_hash == server_hash:
+            #     return func(*args,**kwargs)
 
-            else :
-                return jsonify("Error: HMAC is not matched"),412
+            # else :
+                # return jsonify("Error: HMAC is not matched"),412
 
 
         if request.method == 'POST':
