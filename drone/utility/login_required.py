@@ -11,12 +11,12 @@ def login_required(func):
         api_key     = request.headers.get('api_key')
         api_secret  = request.headers.get('api_secret')
         user_hash   = request.headers.get('hash')
-        timestamp   = request.headers.get('timestamp')
+        user_timestamp   = request.headers.get('timestamp')
 
         if not user or not api_key or not api_secret :
             return jsonify("Error: Invalid Request"),412
 
-        if not hash or not timestamp or not user_hash:
+        if not hash or not user_timestamp or not user_hash:
             return jsonify("Error: Invalid Request"), 412
 
         server_key = get_key(api_key)
