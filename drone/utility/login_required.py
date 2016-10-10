@@ -29,8 +29,8 @@ def login_required(func):
 
         if request.method == 'GET':
             url = request.path + '?' + request.query_string if request.query_string else request.path
-            timestamp_hash = generate_hmac(server_key, user_timestamp)
-            server_hash = generate_hmac(timestamp_hash, url)
+            timestamp_hash = generate_hmac(str(server_key), str(user_timestamp))
+            server_hash = generate_hmac(str(timestamp_hash), str(url))
             if hmac.compare_digest(server_hash, user_hash):
                 return func(*args, **kwargs)
             else:
