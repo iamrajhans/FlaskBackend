@@ -53,7 +53,5 @@ def get_key(api_key):
 
 
 def generate_hmac(key,message):
-
-    hash = hmac.new(key,message.encode('utf-8'),hashlib.sha256).digest()
-
+    hash = hmac.new(key,message.encode('utf-8'),hashlib.sha256).hexdigest()
     return hash
