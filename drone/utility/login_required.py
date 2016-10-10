@@ -29,7 +29,7 @@ def login_required(func):
 
         if request.method == 'GET':
             url = request.path + '?' + request.query_string if request.query_string else request.path
-            timestamp_hash = generate_hmac(api_secret, user_timestamp)
+            timestamp_hash = generate_hmac(server_key, user_timestamp)
             #change with the hmac
             # server_hash = base64.base64encode(str(server_key),str(url))
             # if user_hash == server_hash:
