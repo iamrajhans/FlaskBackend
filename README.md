@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/iamrajhans/FlaskBackend.svg?branch=master)](https://travis-ci.org/iamrajhans/FlaskBackend)
 # FlaskBackend
 
 ##Build backend Using Flask
