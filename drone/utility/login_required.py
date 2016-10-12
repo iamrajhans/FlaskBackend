@@ -19,7 +19,7 @@ def auth_required(func):
         if not hash or not user_timestamp or not user_hash:
             return jsonify("Error: Invalid Request"), 412
 
-        server_key = get_key(api_key)
+        server_key = get_key(api_key,user)
 
         if not server_key:
             return jsonify("key not found"),412
@@ -55,10 +55,10 @@ def auth_required(func):
 
 
 
-def get_key(api_key):
+def get_key(api_key,username):
     app_model= get_application_model(api_key)
     #need validation
-    server_key = app_model.api_key
+    server_key = app_model.api_key if username == app_model.username else None
     return server_key
 
 
