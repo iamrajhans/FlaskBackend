@@ -24,12 +24,11 @@ def login_required(func):
         if not server_key:
             return jsonify("key not found"),412
 
-
+        timestamp_hash = generate_hmac(str(server_key), str(user_timestamp))
         #for get request
 
         if request.method == 'GET':
             url = request.path + '?' + request.query_string if request.query_string else request.path
-            timestamp_hash = generate_hmac(str(server_key), str(user_timestamp))
             server_hash = generate_hmac(str(timestamp_hash), str(url))
             if hmac.compare_digest(server_hash, user_hash):
                 return func(*args, **kwargs)
@@ -45,7 +44,13 @@ def login_required(func):
 
 
         if request.method == 'POST':
-            return ""
+            #check for file upload
+            data = request.data.decode('utf-8')
+            server_hash = generate_hmac(str(timestamp_hash),data)
+            if hmac.compare_digest(server_hash,user_hash):
+                return func(*args, **kwargs)
+            else:
+                return jsonify("Error : HMAC is not matched"), 412
     return decorator_func
 
 
