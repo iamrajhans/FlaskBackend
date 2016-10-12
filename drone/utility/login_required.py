@@ -9,11 +9,11 @@ def auth_required(func):
     def decorator_func(*args,**kwargs):
         user        = request.headers.get('user')
         api_key     = request.headers.get('api_key')
-        api_secret  = request.headers.get('api_secret')
+        # api_secret  = request.headers.get('api_secret')
         user_hash   = request.headers.get('hash')
         user_timestamp   = request.headers.get('timestamp')
 
-        if not user or not api_key or not api_secret :
+        if not user or not api_key :
             return jsonify("Error: Invalid Request"),412
 
         if not hash or not user_timestamp or not user_hash:
