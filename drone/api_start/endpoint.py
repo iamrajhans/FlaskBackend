@@ -3,7 +3,7 @@ from drone.main import db
 from drone.models import UserModel
 from flask import request,current_app,jsonify
 from drone.utility.nishu import add_user_in_db,get_user_names,set_user_credentials,authenticate_user
-from drone.utility.login_required import auth_required
+from drone.utility.auth_required import auth_decorator
 
 
 @api.route('/',methods=['GET'])
@@ -12,7 +12,7 @@ def start():
     return "Count of users from psql "+str(count)
 
 @api.route('/users',methods=['GET'])
-@auth_required
+@auth_decorator
 def users():
     all_users = get_user_names()
     return jsonify(all_users),200
