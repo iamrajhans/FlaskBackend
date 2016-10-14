@@ -3,7 +3,7 @@ from flask import request,jsonify
 from nishu import get_application_model
 import  hmac, hashlib
 
-def auth_required(func):
+def auth_decorator(func):
 
     @wraps(func)
     def decorator_func(*args,**kwargs):
