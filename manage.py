@@ -1,6 +1,6 @@
-from drone.main import create_app,db
 from flask_script import Manager,Server
 from flask_migrate import Migrate,MigrateCommand
+from drone.main import create_app,db
 
 #setup your app
 def setup_app(config):
