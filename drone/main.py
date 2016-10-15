@@ -1,6 +1,6 @@
+import os.path as op
 import logging
 from flask import Flask
-import os.path as op
 from flask_sqlalchemy import SQLAlchemy
 from raven.contrib.flask import Sentry
 
