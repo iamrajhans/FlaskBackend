@@ -1,4 +1,4 @@
-from flask import request,current_app,jsonify
+from flask import request,jsonify
 from drone.api_start import api
 from drone.main import db
 from drone.models import UserModel
