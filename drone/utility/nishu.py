@@ -18,11 +18,10 @@ def add_user_in_db(data):
     db.session.flush()
 
 def get_user_names():
-    totalUsers=[]
+
     users = db.session.query(UserModel).all()
     # ----- add to list the users -----#
-    for user in users:
-        totalUsers.append(user.name)
+    totalUsers = map(lambda m:m.as_dict(),users)
     return totalUsers
 
 def set_user_credentials(user):
