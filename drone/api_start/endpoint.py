@@ -18,6 +18,7 @@ def users():
     return jsonify(all_users),200
 
 @api.route('/users',methods=['POST'])
+@auth_decorator
 def insert_user():
     data = request.get_json()
 
