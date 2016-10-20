@@ -20,7 +20,7 @@ def add_user_in_db(data):
 def get_user_names():
 
     users = db.session.query(UserModel).all()
-    # ----- add to list the users -----#
+    #need to serialize the sqlalchemy object before returning
     totalUsers = map(lambda m:m.as_dict(),users)
     return totalUsers
 
