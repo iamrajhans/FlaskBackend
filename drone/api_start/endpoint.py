@@ -15,7 +15,7 @@ def start():
 @auth_decorator
 def users():
     all_users = get_user_names()
-    return jsonify(all_users),200
+    return jsonify({'result':'success','data':{'users':all_users}}),200
 
 @api.route('/users',methods=['POST'])
 @auth_decorator
