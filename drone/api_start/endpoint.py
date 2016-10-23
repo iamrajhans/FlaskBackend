@@ -26,7 +26,7 @@ def insert_user():
         return "Data is not provided ",414
 
     add_user_in_db(data)
-    return "ok",200
+    return jsonify({'result':'success','message':'user is created successfully'}),200
 
 @api.route('/sign_up',methods=['POST'])
 def new_User():
