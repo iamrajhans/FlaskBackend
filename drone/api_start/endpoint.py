@@ -36,7 +36,7 @@ def new_User():
         return "Data is not Valid",414
 
     api_key = set_user_credentials(user)
-    return jsonify({'key':api_key}),200
+    return jsonify({'result':'success','data':{'key':api_key}}),200
 
 @api.route('/login',methods=['POST'])
 def login():
