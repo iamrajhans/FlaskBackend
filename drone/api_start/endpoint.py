@@ -47,4 +47,4 @@ def login():
     name=user['username']
     passwd=user['password']
     authenticate_user(name,passwd)
-    return "ok",200
+    return jsonify({'result': 'success', 'message': 'login successful'}),200
