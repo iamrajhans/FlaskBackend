@@ -9,7 +9,7 @@ from drone.utility.auth_required import auth_decorator
 @api.route('/',methods=['GET'])
 def start():
     count = db.session.query(UserModel).count()
-    return "Count of users from psql "+str(count)
+    return "Count of users "+str(count)
 
 @api.route('/users',methods=['GET'])
 @auth_decorator
