@@ -3,4 +3,3 @@ venv/
 *.pyc
 venv/
 .idea/
-migrations/
