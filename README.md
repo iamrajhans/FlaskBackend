@@ -1,12 +1,11 @@
 [![Build Status](https://travis-ci.org/iamrajhans/FlaskBackend.svg?branch=master)](https://travis-ci.org/iamrajhans/FlaskBackend)
 # FlaskBackend
 
-##Build backend Using Flask
+## Build backend Using Flask
 
-we will building a full working backend using flask and the database we will be
-using is postgresql
+we will be building a full working backend using flask and postgresql.
 
-##Requirement
+## Requirement
 - ["Postgresql"](https://www.postgresql.org/docs/9.4/static/tutorial-start.html)
 
 - ["flask"](http://flask.pocoo.org/)
@@ -17,21 +16,31 @@ using is postgresql
 
 - ["flask-migrate"](https://flask-migrate.readthedocs.io/en/latest/)
 
-##Install
+## Install Virtual Env
+`pip install virtualenv`
+
+Then cd to repo's directory and do
+
+`virtualenv .`
+
+`source bin/activate`
+
+
+## Create db
+
+`createdb flaskmovie`
+
+## Install
 Install packages using pip
 
 `pip install -r requirement.txt`
 
-##Run it
+## Run it
 Run your app using manager
 
 `python manage.py runserver`
 
-To create migration repository 
-
-`python manage.py db init`
-
-Generate an initial migration 
+Generate migrations
 
 `python manage.py migrate`
 
@@ -42,13 +51,3 @@ Apply the migration to the database
 To see all the commands that are available run this command
 
 `python manage.py db --help`
-
-
-##Authentication
-
-For user login use ["flask-bcrypt"](https://flask-bcrypt.readthedocs.io/en/latest/)
-["hashlib"](https://docs.python.org/2/library/hashlib.html)
-
-
-##Note
-- Do your work in ["virtualenev"](http://docs.python-guide.org/en/latest/dev/virtualenvs/)
