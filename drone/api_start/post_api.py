@@ -9,8 +9,8 @@ from drone.utility.nishu import add_user_in_db,set_user_credentials,authenticate
 def insert_user():
     data = request.get_json()
 
-    if not data or 'id' not in data :
-        return "Data is not provided ",414
+    if 'id' not in data :
+        return jsonify({'result':'error','message':'Data is not provided' }),414
 
     add_user_in_db(data)
     return jsonify({'result':'success','message':'user is created successfully'}),200
