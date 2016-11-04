@@ -19,8 +19,8 @@ def insert_user():
 def new_User():
     user = request.get_json()
 
-    if not user or 'username' and 'password' not in user :
-        return "Data is not Valid",414
+    if 'username' and 'password' not in user :
+        return jsonify({'result':'error','message':'missing data'}),414
 
     api_key = set_user_credentials(user)
     return jsonify({'result':'success','data':{'key':api_key}}),200
