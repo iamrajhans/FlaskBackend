@@ -29,8 +29,8 @@ def new_User():
 def login():
     user = request.get_json()
 
-    if not user or 'username' and 'password' not in user :
-        return "Invalid Data",412
+    if 'username' and 'password' not in user :
+        return jsonify({'result': 'error', 'message': 'missing data'}), 414
     name=user['username']
     passwd=user['password']
     authenticate_user(name,passwd)
