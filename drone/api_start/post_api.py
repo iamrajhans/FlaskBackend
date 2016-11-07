@@ -10,7 +10,7 @@ def insert_user():
     data = request.get_json()
 
     if 'id' not in data :
-        return jsonify({'result':'error','message':'Data is not provided' }),414
+        return jsonify({'result':'error','message':'misiing parameter' }),414
 
     add_user_in_db(data)
     return jsonify({'result':'success','message':'user is created successfully'}),200
