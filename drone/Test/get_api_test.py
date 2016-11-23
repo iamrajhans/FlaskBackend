@@ -7,3 +7,7 @@ tester = app.test_client()
 def test_status_code():
     response = tester.get('/users')
     assert response.status_code == 412
+
+def test_response():
+    response =  tester.get('/users')
+    assert response.response == []
