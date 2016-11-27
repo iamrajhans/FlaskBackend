@@ -13,6 +13,7 @@ def get_app_config():
     return  APPCONFIG
 
 def test_status_code():
+    config = get_app_config()
     response = tester.get('/users')
     assert response.status_code == 412
 
