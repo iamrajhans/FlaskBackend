@@ -17,3 +17,7 @@ def test_status_code():
     response = tester.get('/users')
     assert response.status_code == 412
 
+
+def setup():
+    app = create_app(get_app_config())
+    return app
