@@ -20,4 +20,4 @@ def test_status_code():
 
 def setup():
     app = create_app(get_app_config())
-    return app
+    client = app.test_client()
