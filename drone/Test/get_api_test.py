@@ -1,3 +1,4 @@
+import json
 from drone.main import create_app
 
 app = create_app('local')
@@ -21,3 +22,9 @@ def test_status_code():
 def setup():
     app = create_app(get_app_config())
     client = app.test_client()
+
+def sign_get(url,headers,query,**kwargs):
+    content_type = None
+    if 'data' in kwargs:
+        kwargs['data'] = json.dumps(kwargs['data'])
+        content_type = 'application/json'
