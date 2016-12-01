@@ -10,21 +10,26 @@ class APPCONFIG(object) :
     USERNAME = 'test'
     KEY = 'test'
 
-def get_app_config():
-    return  APPCONFIG
+
 
 def test_status_code():
-    config = get_app_config()
     response = tester.get('/users')
     assert response.status_code == 412
 
 
-def setup():
-    app = create_app(get_app_config())
-    client = app.test_client()
 
-def sign_get(url,headers,query,**kwargs):
-    content_type = None
-    if 'data' in kwargs:
-        kwargs['data'] = json.dumps(kwargs['data'])
-        content_type = 'application/json'
+
+class CommonTestCase():
+
+    def get_app_config(self):
+        return APPCONFIG
+
+    def setup(self):
+        self.app = create_app(self.get_app_config())
+        self.client = self.app.test_client()
+
+    def sign_get(self,url, headers, query, **kwargs):
+        content_type = None
+        if 'data' in kwargs:
+            kwargs['data'] = json.dumps(kwargs['data'])
+            content_type = 'application/json'
