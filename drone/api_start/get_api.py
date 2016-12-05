@@ -16,3 +16,8 @@ def start():
 def users():
     all_users = get_user_names()
     return jsonify({'result':'success','data':{'users':all_users}}),200
+
+@api.route('/graphql',methods=['GET'])
+@auth_decorator
+def graphql():
+    return '',200
