@@ -7,4 +7,3 @@ psycopg2
 flask-bcrypt
 blinker
 bcrypt
-pytest
