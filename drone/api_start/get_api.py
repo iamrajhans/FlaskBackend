@@ -1,4 +1,5 @@
 from flask import jsonify
+from flask_graphql import GraphQLView
 from drone.api_start import api
 from drone.main import db
 from drone.models import UserModel
