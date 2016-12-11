@@ -5,7 +5,7 @@ from drone.main import db
 from drone.models import UserModel
 from drone.utility.nishu import get_user_names
 from drone.utility.auth_required import auth_decorator
-
+from drone.api_start.schema import schema
 
 @api.route('/',methods=['GET'])
 def start():
@@ -21,4 +21,4 @@ def users():
 @api.route('/graphql',methods=['GET'])
 @auth_decorator
 def graphql():
-    return '',200
+    return GraphQLView(schema=schema,graphiql=True),200
