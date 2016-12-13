@@ -1,6 +1,11 @@
 import graphene
 from graphene_sqlalchemy import SQLAlchemyObjectType
 from drone.models.user import UserModel
+from sqlalchemy.ext.declarative import declarative_base
+from drone.main import db
+
+Base = declarative_base()
+Base.query = db.session.query_property()
 
 class Users(SQLAlchemyObjectType):
     class Meta:
