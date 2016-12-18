@@ -18,4 +18,4 @@ class Query(graphene.ObjectType):
         query = Users.get_query(context)  # SQLAlchemy query
         return query.all()
 
-schema = graphene.Schema(query=Query)
+schema = graphene.Schema(query=Query,types=[UserModel])
