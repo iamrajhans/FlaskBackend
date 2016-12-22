@@ -15,7 +15,7 @@ class Users(SQLAlchemyObjectType):
 
 class Query(graphene.ObjectType):
     # users = graphene.List(Users)
-    node = relay.Node.field()
+    node = relay.Node.Field()
     user = SQLAlchemyConnectionField(Users)
 
     def resolve_users(self, args, context, info):
