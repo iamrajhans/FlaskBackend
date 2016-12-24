@@ -3,9 +3,10 @@ from flask_graphql import GraphQLView
 from drone.api_start import api
 from drone.main import db
 from drone.models import UserModel
-from drone.utility.nishu import get_user_names
+from drone.models.schema import schema
 from drone.utility.auth_required import auth_decorator
-from drone.api_start.schema import schema
+from drone.utility.nishu import get_user_names
+
 
 @api.route('/',methods=['GET'])
 def start():
