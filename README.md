@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/iamrajhans/FlaskBackend.svg?branch=master)](https://travis-ci.org/iamrajhans/FlaskBackend)
-##Flask + SQLAlchemy + Postgres
+##Flask + SQLAlchemy + Graphql
 Simple Flask app.
 
 
