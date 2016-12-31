@@ -4,8 +4,12 @@ from datetime import datetime
 class UserModel(db.Model):
     __tablename__ = 'users'
     id    = db.Column(db.Integer,primary_key=True,autoincrement=True)
-    name  = db.Column(db.String(100),nullable=True)
+    user_id = db.Column(db.String(100),nullable=True)
+    first_name  = db.Column(db.String(100),nullable=True)
+    last_name = db.Column(db.String(200),nullable=True)
     email = db.Column(db.String(150),nullable=True)
+    birth_date = db.Column(db.String(150),nullable=True)
+    address = db.Column(db.String(255),nullable=True)
     created_at = db.Column(db.TIMESTAMP , nullable=False)
     updated_at = db.Column(db.TIMESTAMP,nullable=False)
     def as_dict(self):
