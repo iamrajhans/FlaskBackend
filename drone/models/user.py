@@ -8,7 +8,7 @@ class UserModel(db.Model):
     name  = db.Column(db.String(100),nullable=True)
     last_name = db.Column(db.String(200),nullable=True)
     email = db.Column(db.String(150),nullable=True)
-    birth_date = db.Column(db.String(150),nullable=True)
+    birth_date = db.Column(db.TIMESTAMP,nullable=True)
     address = db.Column(db.String(255),nullable=True)
     created_at = db.Column(db.TIMESTAMP , nullable=False)
     updated_at = db.Column(db.TIMESTAMP,nullable=False)
