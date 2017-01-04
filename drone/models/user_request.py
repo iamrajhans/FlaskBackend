@@ -4,6 +4,7 @@ from datetime import datetime
 class UserRequest(db.Model):
     __tablename__ = 'referral'
     id = db.Column(db.String(255),autoincrement=True)
+    user_id = db.Column(db.String(100), nullable=True)
     from_user = db.Column(db.String(255))
     request_type = db.Column(db.String(255))
     created_at = db.Column(db.TIMESTAMP,nullable=True)
