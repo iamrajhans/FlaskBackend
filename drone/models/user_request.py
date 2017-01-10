@@ -8,6 +8,7 @@ class UserRequest(db.Model):
     from_user = db.Column(db.String(255),nullable=False)
     to_user = db.Column(db.String(255),nullable=False)
     request_type = db.Column(db.String(255),nullable=False)
+    referral_id = db.Column(db.String(255),nullable=False)
     created_at = db.Column(db.TIMESTAMP,nullable=True)
     updated_at = db.Column(db.TIMESTAMP,nullable=True)
 
