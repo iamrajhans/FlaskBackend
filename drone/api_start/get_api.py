@@ -10,6 +10,9 @@ from drone.utility.nishu import get_user_names
 
 @api.route('/',methods=['GET'])
 def start():
+    """
+    Returns: entry endpoint to check connected to db and working correctly
+    """
     count = db.session.query(UserModel).count()
     return "Count of users "+str(count),200
 
