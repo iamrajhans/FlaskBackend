@@ -21,4 +21,4 @@ class Query(ObjectType):
         query = Users.get_query(context)  # SQLAlchemy query
         return query.all()
 
-schema = Schema(query=Query,types=[UserModel])
+schema = Schema(query=Query)
