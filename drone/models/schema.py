@@ -1,4 +1,4 @@
-from graphene import relay,ObjectType,Schema
+from graphene import relay,ObjectType,Schema,String
 from graphene_sqlalchemy import SQLAlchemyObjectType,SQLAlchemyConnectionField
 from sqlalchemy.ext.declarative import declarative_base
 from drone.models.user import UserModel
@@ -18,10 +18,15 @@ class Users(SQLAlchemyObjectType):
 class Query(ObjectType):
     # users = graphene.List(Users)
     node = relay.Node.Field()
-    user = SQLAlchemyConnectionField(Users)
+    user = SQLAlchemyConnectionField(Users,name=String())
 
-    def resolve_users(self, args, context, info):
+    def resolve_users(model,self, args, context, info):
         query = Users.get_query(context)  # SQLAlchemy query
-        return query.all()
+        if args and 'name' in args:
+            query = query.filter(getattr(model,'name') == args['name'])
+            return query
+        else:
+            return query
+
 
 schema = Schema(query=Query)
