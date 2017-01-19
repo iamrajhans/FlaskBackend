@@ -18,11 +18,12 @@ class Users(SQLAlchemyObjectType):
 class Query(ObjectType):
     # users = graphene.List(Users)
     # node = relay.Node.Field()
-    user = SQLAlchemyConnectionField(Users,name=String(),email=String())
-    node = relay.Node.Field(Users)
+    user = SQLAlchemyConnectionField(Users,name=String(),email=String()) # add more field which need to be filter
+    node = relay.Node.Field(Users) # use to resolve the node field
 
     def resolve_user(self, args, context, info):
         query = Users.get_query(context)  # SQLAlchemy query
+        #filter query TODO : filter query in different way
         if args and 'name' in args:
             return query.filter(UserModel.name == args['name'])
         if args and 'email' in args:
