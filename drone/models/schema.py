@@ -17,16 +17,18 @@ class Users(SQLAlchemyObjectType):
 
 class Query(ObjectType):
     # users = graphene.List(Users)
-    node = relay.Node.Field()
-    user = SQLAlchemyConnectionField(Users,name=String())
+    # node = relay.Node.Field()
+    user = SQLAlchemyConnectionField(Users,name=String(),email=String())
+    node = relay.Node.Field(Users)
 
-    def resolve_users(model,self, args, context, info):
+    def resolve_user(self, args, context, info):
         query = Users.get_query(context)  # SQLAlchemy query
         if args and 'name' in args:
-            query = query.filter(getattr(model,'name') == args['name'])
-            return query
+            return query.filter(UserModel.name == args['name'])
+        if args and 'email' in args:
+            return query.filter(UserModel.email == args['email'])
         else:
-            return query
+            return query.all()
 
 
 schema = Schema(query=Query)
