@@ -16,8 +16,10 @@ class Users(SQLAlchemyObjectType):
         interfaces = (relay.Node,)
 
 class Query(ObjectType):
+    """
+    Query class to run the graphql query
+    """
     # users = graphene.List(Users)
-    # node = relay.Node.Field()
     user = SQLAlchemyConnectionField(Users,name=String(),email=String()) # add more field which need to be filter
     node = relay.Node.Field(Users) # use to resolve the node field
 
