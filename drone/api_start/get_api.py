@@ -25,4 +25,8 @@ def users():
 @api.route('/graphql',methods=['GET','POST'])
 @auth_decorator
 def graphql():
+    """
+    endpoint to fetch the data
+    Returns: query result of graphql
+    """
     return GraphQLView(schema=schema,graphiql=True).dispatch_request(),200
