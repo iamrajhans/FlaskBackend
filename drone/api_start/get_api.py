@@ -19,6 +19,9 @@ def start():
 @api.route('/users',methods=['GET'])
 @auth_decorator
 def users():
+    """
+    Returns: get all users details 
+    """
     all_users = get_user_names()
     return jsonify({'result':'success','data':{'users':all_users}}),200
 
