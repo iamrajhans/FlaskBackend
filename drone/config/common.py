@@ -10,7 +10,7 @@ DEBUG = True
 
 
 #------- Database URI ----------#
-SQLALCHEMY_DATABASE_URI= 'postgresql://Rajhans:laviraj123@localhost:5432/flaskmovie'
+SQLALCHEMY_DATABASE_URI= 'postgresql://username:password@localhost:5432/db_name'
 
 
 #-------- Sentry ------#
