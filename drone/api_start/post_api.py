@@ -10,7 +10,7 @@ def insert_user():
     data = request.get_json()
 
     if 'id' not in data :
-        return jsonify({'result':'error','message':'misiing parameter' }),414
+        return jsonify({'result':'error','message':'misiing parameter' }),200
 
     add_user_in_db(data)
     return jsonify({'result':'success','message':'user is created successfully'}),200
@@ -20,7 +20,7 @@ def new_User():
     user = request.get_json()
 
     if 'username' and 'password' not in user :
-        return jsonify({'result':'error','message':'missing data'}),414
+        return jsonify({'result':'error','message':'missing data'}),200
 
     api_key = set_user_credentials(user)
     return jsonify({'result':'success','data':{'key':api_key}}),200
@@ -30,7 +30,7 @@ def login():
     user = request.get_json()
 
     if 'username' and 'password' not in user :
-        return jsonify({'result': 'error', 'message': 'missing data'}), 414
+        return jsonify({'result': 'error', 'message': 'missing data'}), 200
     name=user['username']
     passwd=user['password']
     authenticate_user(name,passwd)
