@@ -3,7 +3,7 @@ from datetime import datetime
 
 class UserRequest(db.Model):
     __tablename__ = 'request_referral'
-    id = db.Column(db.String(255),autoincrement=True)
+    id = db.Column(db.String(255),autoincrement=True,primary_key=True)
     user_id = db.Column(db.String(100), nullable=True)
     from_user = db.Column(db.String(255),nullable=False)
     to_user = db.Column(db.String(255),nullable=False)
