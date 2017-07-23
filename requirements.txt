@@ -11,3 +11,4 @@ graphene-sqlalchemy>=1.0
 graphene>=1.0
 Flask-GraphQL==1.3.0
 codecov
+pytest
